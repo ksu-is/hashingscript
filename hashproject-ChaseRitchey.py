@@ -21,5 +21,13 @@ with open(filename, 'rb') as f:
         hashfile.update(fb)
         fb = f.read(BLOCK_SIZE)
 
+hashfile256 = hashlib.sha256()
+with open(filename, 'rb') as f:
+    fb = f.read(BLOCK_SIZE)
+    while len(fb) > 0:
+        hashfile.update(fb)
+        fb = f.read(BLOCK_SIZE)
+
 print("The file you selected is", filename)
 print("This is the SHA1 hash of the selected file:", hashfile.hexdigest())
+print("This is the SHA256 hash of the selected file:", hashfile256.hexdigest())
