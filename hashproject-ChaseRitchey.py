@@ -14,7 +14,15 @@ Tk().withdraw()
 filename = askopenfilename() 
 
 BLOCK_SIZE = 65536
+
 hashfile = hashlib.sha1()
+with open(filename, 'rb') as f:
+    fb = f.read(BLOCK_SIZE)
+    while len(fb) > 0:
+        hashfile.update(fb)
+        fb = f.read(BLOCK_SIZE)
+
+hashfilemd5 = hashlib.md5()
 with open(filename, 'rb') as f:
     fb = f.read(BLOCK_SIZE)
     while len(fb) > 0:
@@ -29,5 +37,6 @@ with open(filename, 'rb') as f:
         fb = f.read(BLOCK_SIZE)
 
 print("The file you selected is", filename)
+print("This is the MD5 hash of the selected file:", hashfilemd5.hexdigest())
 print("This is the SHA1 hash of the selected file:", hashfile.hexdigest())
 print("This is the SHA256 hash of the selected file:", hashfile256.hexdigest())
