@@ -15,6 +15,7 @@ filename = askopenfilename()
 
 BLOCK_SIZE = 65536
 
+#SHA1 hashing
 hashfile = hashlib.sha1()
 with open(filename, 'rb') as f:
     fb = f.read(BLOCK_SIZE)
@@ -22,6 +23,7 @@ with open(filename, 'rb') as f:
         hashfile.update(fb)
         fb = f.read(BLOCK_SIZE)
 
+#MD5 hashing
 hashfilemd5 = hashlib.md5()
 with open(filename, 'rb') as f:
     fb = f.read(BLOCK_SIZE)
@@ -29,6 +31,7 @@ with open(filename, 'rb') as f:
         hashfile.update(fb)
         fb = f.read(BLOCK_SIZE)
 
+#SHA256 hashing
 hashfile256 = hashlib.sha256()
 with open(filename, 'rb') as f:
     fb = f.read(BLOCK_SIZE)
