@@ -7,7 +7,7 @@ from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 
 print("This application will open a file and will create a hash of that file.")
-print("It will display the file and then create a SHA1 hash.")
+print("It will display the file and then create SHA1 hash.")
 print("Please select a file to hash.")
 
 Tk().withdraw() 
@@ -24,22 +24,22 @@ with open(filename, 'rb') as f:
         fb = f.read(BLOCK_SIZE)
 
 #MD5 hashing
-hashfilemd5 = hashlib.md5()
-with open(filename, 'rb') as f:
-    fb = f.read(BLOCK_SIZE)
-    while len(fb) > 0:
-        hashfile.update(fb)
-        fb = f.read(BLOCK_SIZE)
+#hashfilemd5 = hashlib.md5()
+#with open(filename, 'rb') as f:
+    #fb = f.read(BLOCK_SIZE)
+    #while len(fb) > 0:
+        #hashfile.update(fb)
+        #fb = f.read(BLOCK_SIZE)
 
 #SHA256 hashing
-hashfile256 = hashlib.sha256()
-with open(filename, 'rb') as f:
-    fb = f.read(BLOCK_SIZE)
-    while len(fb) > 0:
-        hashfile.update(fb)
-        fb = f.read(BLOCK_SIZE)
+#hashfile256 = hashlib.sha256()
+#with open(filename, 'rb') as f:
+    #fb = f.read(BLOCK_SIZE)
+    #while len(fb) > 0:
+        #hashfile.update(fb)
+        #fb = f.read(BLOCK_SIZE)
 
 print("The file you selected is", filename)
-print("This is the MD5 hash of the selected file:", hashfilemd5.hexdigest())
+#print("This is the MD5 hash of the selected file:", hashfilemd5.hexdigest())
 print("This is the SHA1 hash of the selected file:", hashfile.hexdigest())
-print("This is the SHA256 hash of the selected file:", hashfile256.hexdigest())
+#print("This is the SHA256 hash of the selected file:", hashfile256.hexdigest())
